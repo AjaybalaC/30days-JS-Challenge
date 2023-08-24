@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Slider</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+  }
+
+  .slider-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 50px auto;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    height: auto;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .slider-controls {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .slider-button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+  }
+
+  .slider-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .slider-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .slider-close:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>
+</head>
+<body>
+<div class="slider-container">
+  <button class="slider-close" onclick="closeSlider()">Close</button>
+  <div class="slider">
+    <div class="slide"><img src="image1.jpg" alt="Image 1"></div>
+    <div class="slide"><img src="image2.jpg" alt="Image 2"></div>
+    <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
+    <!-- Add more slide elements as needed -->
+  </div>
+  <div class="slider-controls">
+    <button class="slider-button" onclick="prevSlide()">&#10094;</button>
+    <button class="slider-button" onclick="nextSlide()">&#10095;</button>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelector('.slider');
+  const slideElements = document.querySelectorAll('.slide');
+  const slideWidth = slideElements[0].clientWidth;
+  let currentIndex = 0;
+
+  function goToSlide(index) {
+    slides.style.transform = `translateX(-${index * slideWidth}px)`;
+    currentIndex = index;
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slideElements.length) % slideElements.length;
+    goToSlide(currentIndex);
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slideElements.length;
+    goToSlide(currentIndex);
+  }
+
+  function closeSlider() {
+    // Close the slider or perform other actions here
+  }
+</script>
+</body>
+</html>
