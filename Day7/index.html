@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Interactive Form Validation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <div class="form-title">Create an Account</div>
+    <form id="registration-form">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <div class="error-message" id="name-error">Please enter a valid name.</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <div class="error-message" id="email-error">Please enter a valid email address.</div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <div class="error-message" id="password-error">Password must be at least 8 characters long.</div>
+      </div>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
