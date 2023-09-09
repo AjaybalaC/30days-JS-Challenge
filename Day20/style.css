@@ -1,0 +1,55 @@
+body {
+  font-family: 'Inter', sans-serif;
+font-family: 'Rubik Iso', cursive;
+  text-align: center;
+  /* background-color: #333; */
+}
+
+.wheel-container {
+  position: relative;
+  width: 300px;
+  margin: 50px auto;
+  margin-top: 100px;
+}
+
+.wheel {
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  border: 5px solid #d61a1a;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 5s ease-out;
+}
+
+.segment {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: hsl(0, 78%, 47%);
+  transform-origin: 100% 50%;
+}
+
+#spin-button {
+  margin-top: 100px;
+  padding: 10px 20px;
+  background-color: #ac2fb1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* CSS for spinning animation */
+@keyframes spin {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+.wheel.spinning {
+  animation: spin 5s ease-out;
+}

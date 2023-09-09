@@ -1,0 +1,47 @@
+/* styles.css */
+#loading-btn {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  
+  #loading-btn.normal {
+    background-color: #0c4870;
+    margin-top: 20%;
+    margin-left: 45%;
+
+  }
+  
+  #loading-btn.loading {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  @keyframes spin {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+  }
+
+
+  #loading-btn.loading {
+    transform: rotateX(360deg);
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0%, 100% {
+      transform: rotateX(0deg);
+    }
+    50% {
+      transform: rotateX(180deg);
+    }
+  }
+  
